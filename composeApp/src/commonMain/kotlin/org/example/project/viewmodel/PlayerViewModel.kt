@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.example.project.audio.PlayerInterface
+import org.example.project.audio.PlayerState
 import org.example.project.audio.createPlayerInterface
 import org.example.project.data.MusicRepository
 import org.example.project.data.Song
@@ -19,17 +20,26 @@ class PlayerViewModel : ViewModel() {
     private val _songs = MutableStateFlow<List<Song>>(emptyList())
     val song: StateFlow<List<Song>> = _songs.asStateFlow()
 
+    private val _currentSong = MutableStateFlow<Song?>(null)
+
+    val currentSong: StateFlow<Song?> = _currentSong.asStateFlow()
+
     private val audioPlayer: PlayerInterface = createPlayerInterface()
+
+    val playerState: StateFlow<PlayerState> = audioPlayer.state
 
     init {
         loadSongs()
-        audioPlayer.play("https://myheihcbyastpymcpqiy.supabase.co/storage/v1/object/public/audio/music1.mp3")
     }
 
     private fun loadSongs(){
         viewModelScope.launch {
             _songs.value = repository.getSongs()
         }
+    }
+    fun selectSong(song: Song){
+        _currentSong.value = song
+        audioPlayer.play(song.audioUrl)
     }
 
 }
