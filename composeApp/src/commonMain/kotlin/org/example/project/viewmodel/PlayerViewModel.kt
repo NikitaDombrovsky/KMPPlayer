@@ -44,5 +44,21 @@ class PlayerViewModel : ViewModel() {
         _currentSong.value = song
         audioPlayer.play(song.audioUrl)
     }
+    fun playNext(){
+        val list = _songs.value
+        val current = _currentSong.value ?: return
+        val index = list.indexOf(current)
+        if (index < list.size -1) {
+            selectSong(list[index + 1])
+        }
+    }
+    fun playPrev(){
+        val list = _songs.value
+        val current = _currentSong.value ?: return
+        val index = list.indexOf(current)
+        if (index > 0) {
+            selectSong(list[index - 1])
+        }
+    }
 
 }

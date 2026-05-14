@@ -49,10 +49,10 @@ fun App() {
                 song = currentSong!!,
                 playerState = playerState,
                 onPlayPause = viewModel::togglePlayPause,
-                onNext =  {},
-                onBack = {},
+                onNext =  viewModel::playNext,
+                onBack = { showPlayer = false},
                 onSeek = {},
-                onPrev = {}
+                onPrev = viewModel::playPrev
             )
         }  else {
             SongListScreen(
