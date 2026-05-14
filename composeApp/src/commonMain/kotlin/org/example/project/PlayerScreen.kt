@@ -22,8 +22,10 @@ import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.SkipNext
 import androidx.compose.material.icons.filled.SkipPrevious
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -60,25 +62,38 @@ fun PlayerScreen(
                     .background(MaterialTheme.colorScheme.primaryContainer),
                 contentAlignment = Alignment.Center
             ) {
-                // TODO Для загрузки потом
+                if (playerState.isLoading){
+                    CircularProgressIndicator(color = MaterialTheme.colorScheme.onPrimaryContainer)
+                } else{
+                    // TODO Для загрузки потом
+                }
+
 //                Icon(
 //                    painterResource(R.drawable.)
 //                )
             }
             Spacer(Modifier.height(40.dp))
+            Text(
+                text = song.title,
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+            Spacer(Modifier.height(5.dp))
+            Text(
+                text = song.author,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
 
-//            Text(
-//                text =
-//            )
+            Spacer(Modifier.height(35.dp))
+
+            Slider(
+                value = 0f,
+                onValueChange = {},
+                modifier = Modifier.fillMaxWidth()
+            )
+
             //TODO Картинка
-            //TODO Название
-            //TODO Автор
-            //TODO Прогресс
-
-
-            // Кнопка назад
-            //  Кнопка паузы
-            // Кнопка вперед
 
             Row(
                 modifier = Modifier.fillMaxWidth(),

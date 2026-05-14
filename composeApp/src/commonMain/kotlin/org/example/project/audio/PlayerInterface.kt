@@ -10,4 +10,4 @@ interface PlayerInterface {
     fun seekTo(positionMs: Long)
 }
 
-//expect fun createPlayerInterface(): PlayerInterface
+expect fun createPlayerInterface(): PlayerInterface
