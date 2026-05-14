@@ -10,7 +10,7 @@ data class Song(
     @SerialName("audio_url") val audioUrl: String,
     @SerialName("duration_seconds") val durationSeconds: Int,
     val author: String,
-    @SerialName("cover_url") val coverUrl: Int,
+    @SerialName("cover_url") val coverUrl: String,
 ) {
 
 }
