@@ -48,7 +48,7 @@ fun App() {
             PlayerScreen(
                 song = currentSong!!,
                 playerState = playerState,
-                onPlayPause = {},
+                onPlayPause = viewModel::togglePlayPause,
                 onNext =  {},
                 onBack = {},
                 onSeek = {},

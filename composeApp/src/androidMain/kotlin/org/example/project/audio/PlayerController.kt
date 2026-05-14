@@ -29,14 +29,14 @@ class PlayerController : PlayerInterface {
     }
 
     override fun pause() {
-        TODO("Not yet implemented")
+        mediaPlayer?.pause()
     }
 
     override fun resume() {
-        TODO("Not yet implemented")
+        mediaPlayer?.start();
     }
 
     override fun seekTo(positionMs: Long) {
-        TODO("Not yet implemented")
+        mediaPlayer?.seekTo(positionMs.toInt())
     }
 }

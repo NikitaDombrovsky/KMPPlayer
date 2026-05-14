@@ -32,6 +32,9 @@ class PlayerViewModel : ViewModel() {
         loadSongs()
     }
 
+    fun togglePlayPause(){
+        if (playerState.value.isPlaying) audioPlayer.pause() else audioPlayer.resume()
+    }
     private fun loadSongs(){
         viewModelScope.launch {
             _songs.value = repository.getSongs()
