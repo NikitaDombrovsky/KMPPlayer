@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import org.example.project.audio.PlayerInterface
 import org.example.project.audio.PlayerState
-import org.example.project.audio.createPlayerInterface
+import org.example.project.createPlayerInterface
 import org.example.project.data.MusicRepository
 import org.example.project.data.Song
 import org.example.project.network.createHttpClient
